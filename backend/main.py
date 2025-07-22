@@ -1,33 +1,33 @@
+import os
+import openrouteservice
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import openrouteservice
 
 app = FastAPI()
 
-# Permitir chamadas do frontend (CORS)
+#PERMITINDO CHAMADAS DO FRONTEND
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Durante testes pode deixar assim
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Substitua com sua chave
-API_KEY = "eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImU4MDk4MjJiZTNlNzQ4MWE4ZmY3ZDdiZjA3NDQ2ZTRjIiwiaCI6Im11cm11cjY0In0="
-
-client = openrouteservice.Client(key=API_KEY)
+#PEGANDO API KEY DO AMBIENTE
+ORS_API_KEY = os.getenv("ORS_API_KEY")
+client = openrouteservice.Client(key=ORS_API_KEY)
 
 class ViagemRequest(BaseModel):
     origem: str
     destino: str
-    consumo: float  # km por litro
-    preco_combustivel: float  # R$/litro
+    consumo: float 
+    preco_combustivel: float 
 
 
 @app.post("/calcular")
 def calcular_viagem(data: ViagemRequest):
-    # Geocodificar
+    #GEOCODIFICADOR
     coord_origem = client.pelias_search(data.origem)['features'][0]['geometry']['coordinates']
     coord_destino = client.pelias_search(data.destino)['features'][0]['geometry']['coordinates']
 
@@ -42,7 +42,7 @@ def calcular_viagem(data: ViagemRequest):
     horas = tempo_minutos // 60
     minutos = tempo_minutos % 60
 
-    # Calcular custo
+
     litros = distancia_km / data.consumo
     custo = litros * data.preco_combustivel
 

@@ -10,7 +10,7 @@ async function calcular() {
     botao_calcular.classList.add("clicado");
   }, 100);
 
-  const response = await fetch("http://192.168.0.140:8000/calcular", {
+  const response = await fetch("https://api-viagem.onrender.com/calc", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
