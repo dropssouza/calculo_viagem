@@ -10,6 +10,10 @@ async function calcular() {
     botao_calcular.classList.add("clicado");
   }, 100);
 
+  document.getElementById("resultado").innerHTML = `
+    <p>A primeira requisição pode demorar um pouco, aguarde um momento</p>
+  `;
+
   const response = await fetch("https://api-viagem.onrender.com/calcular", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
