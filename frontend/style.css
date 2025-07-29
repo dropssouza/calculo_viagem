@@ -95,3 +95,8 @@ h1 {
   font-size: 16px;
   gap: 5px;
 }
+
+#resultado p {
+  margin: 0px;
+  text-align: center;
+}
