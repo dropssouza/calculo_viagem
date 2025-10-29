@@ -2,6 +2,8 @@
 
 Este projeto é uma calculadora de viagem que estima a **distância**, o **tempo de percurso** e o **custo total** de combustível entre duas cidades. O cálculo é feito com base no consumo médio do veículo e no preço atual do combustível.
 
+Acesse o projeto aqui: https://calculadora-viagem-dropssouza.netlify.app/
+
 ---
 
 ## 🖥️ Tecnologias Utilizadas
