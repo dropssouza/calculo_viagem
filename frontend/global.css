@@ -115,10 +115,17 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+#obs {
+  padding: 10px 15px 15px 15px;
+  font-size: small;
+  max-width: 268px;
+  text-align: justify;
 }
