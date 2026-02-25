@@ -1,5 +1,5 @@
-@import url(/frontend/global.css);
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('./global.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 html,
 body {
@@ -9,7 +9,7 @@ body {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   background: #f4f4f4;
   display: flex;
   justify-content: center;
@@ -53,7 +53,7 @@ h1 {
   width: 95%;
   height: 16px;
   font-size: 16px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .form-label span {
@@ -71,7 +71,9 @@ h1 {
   cursor: pointer;
   font-size: 16px;
   font-weight: 700;
-  transition: background-color 0.3s ease, transform 0.1s;
+  transition:
+    background-color 0.3s ease,
+    transform 0.1s;
   width: 90%;
 }
 
@@ -99,4 +101,11 @@ h1 {
 #resultado p {
   margin: 0px;
   text-align: center;
+}
+
+#obs {
+  padding: 10px 15px 15px 15px;
+  font-size: small;
+  max-width: 268px;
+  text-align: justify;
 }
